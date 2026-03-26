@@ -5,7 +5,7 @@ import datetime
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 def generate_token(user_id: int) -> str:
-    # FIX: JWT with expiry and signature
+    # FIXED: JWT with expiry and signature
     payload = {
         "user_id": user_id,
         "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
@@ -21,4 +21,4 @@ def verify_token(token: str) -> int:
     except jwt.ExpiredSignatureError:
         raise ValueError("Token has expired")
     except jwt.InvalidTokenError:
-        raise ValueError("Invalid token")
+        raise ValueError("Invalid token provided")

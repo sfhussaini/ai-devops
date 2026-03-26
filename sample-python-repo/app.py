@@ -56,7 +56,7 @@ def get_user(username):
 
 @app.route('/data')
 def get_data():
-    # FIX: Removed pickle entirely — use JSON
+    # FIXED: Removed pickle entirely — use JSON
     import json
     data = request.args.get('payload')
     return jsonify(json.loads(data))
