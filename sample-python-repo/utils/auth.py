@@ -21,4 +21,4 @@ def verify_token(token: str) -> int:
     except jwt.ExpiredSignatureError:
         raise ValueError("Token has expired")
     except jwt.InvalidTokenError:
-        raise ValueError("Invalid token")
+        raise ValueError("Invalid token provided")
